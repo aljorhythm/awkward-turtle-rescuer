@@ -1,0 +1,15 @@
+<%- include('head.html', {user: user}); %>
+<style>
+	.indexForm [type=tel]{
+		width: 300px;
+	    text-align: center;
+	    margin-left: auto;
+	    margin-right: auto;
+    }
+</style>
+<form method="POST" class="indexForm">
+	Enter One-Time Pin Sent to <%= user.OTP.phone %>
+	<input style="width: 300px" type="tel" name="OTP_number" placeholder="XXXX" maxlength="8"><br>
+	<input type="submit" value="I Have Entered The OTP">
+</form>
+<%- include('foot.html', {user: user}); %>

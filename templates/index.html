@@ -1,0 +1,37 @@
+<%- include('head.html', {user: user}); %>
+<% if(user) { %>
+	<% if(user.phone != "") { %>
+		<footer>
+			<p>Hit The Rescue Button</p>
+			<script>
+				function sendCall(e){
+					var parent = e.parentNode;
+					var xmlHttp = new XMLHttpRequest();
+					xmlHttp.onreadystatechange = function() {
+						if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+							var seconds = parseInt(JSON.parse(xmlHttp.responseText).seconds);
+							var interval;
+							parent.removeChild(e);
+							interval = setInterval(function(){
+								parent.innerHTML = "RESCUE SENT. COMING IN AWHILE... " + seconds--;
+								if(seconds < 0){
+									clearInterval(interval);
+									parent.innerHTML = "REACHED";
+								}
+							}, 1000);
+						}
+					};
+					xmlHttp.open("GET", "/call", true); // false for synchronous request
+					xmlHttp.send(null);
+				}
+			</script>
+			<ul class="icons">
+				<li><a href="#" onclick="sendCall(this)" class="fa-phone">Phone</a></li>
+			</ul>
+		</footer>
+	<% } %>
+<% } else { %>
+	<a href="/auth/facebook"><img src="/images/fb.png" style="height: 60px"></a>
+<% } %>
+<%- include('foot.html'); %>
+						

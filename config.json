@@ -1,0 +1,25 @@
+{
+  "GCLOUD_PROJECT": "awkwardturtlerescuer",
+  "DATA_BACKEND": "mongodb",
+  "MONGO_URL": "mongodb://130.211.247.130:27017/awkwardturtlerescuer",
+  "SESSION_SECRET": "bulgogi",
+  "PROVIDER_FACEBOOK" : {
+  	"APP_ID": "906419616128960",
+  	"APP_SECRET": "354c2211d8ef8b8884aaf351cb747563",
+    "SCOPE" : ["public_profile", "email", "read_custom_friendlists"]
+  },
+  "HOIIO" : {
+    "APP_ID" : "GfggQcMD56FGrEZk",
+    "ACCESS_TOKEN" : "pphHtCM80ebAfgxO",
+    "NUMBER" : "+6567151471"
+  },
+  "ENV" : "PROD",
+  "ENV_PROD" : {
+    "PORT" : 8080,
+    "DOMAIN" : "http://awkwardturtlerescuer.appspot.com"
+  },
+  "ENV_DEV" : {
+  	"PORT" : 8080,
+  	"DOMAIN" : "http://www.awkwardturtlerescuer.dev:3000"
+  }
+}

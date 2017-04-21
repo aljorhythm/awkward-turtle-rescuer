@@ -1,0 +1,7 @@
+<%- include('head.html', {user: user}); %>
+<% if(err) { %> <%= err %> <% } %>
+<form method="POST" class="indexForm">
+	<input type="text" name="phone" placeholder="Enter Phone Number" size="8"><br>
+	<input type="submit" value="Register Phone">
+</form>
+<%- include('foot.html', {user: user}); %>

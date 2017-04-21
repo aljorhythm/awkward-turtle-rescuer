@@ -1,0 +1,31 @@
+{
+  "name": "awkward-turtle-rescuer-server",
+  "version": "1.0.0",
+  "description": "Rescue The Turtle",
+  "main": "server.js",
+  "engines" : {"node" : "4.4.4"},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "email" : "103879u@gmail.com",
+  "author": "AwkwardTurtleRescuers",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-mongo": "^1.2.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.4.2",
+    "errorhandler": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "fb": "^1.1.1",
+    "mongoose": "^4.5.4",
+    "morgan": "^1.7.0",
+    "nconf": "^0.8.4",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-oauth": "^1.0.0",
+    "querystring": "^0.2.0",
+    "serve-favicon": "^2.3.0"
+  }
+}

@@ -1,0 +1,32 @@
+<%- include('head.html', {user: user}); %>
+<footer>
+	<p>Hit The Rescue Button</p>
+	<script>
+		function sendCall(e){
+			var parent = e.parentNode;
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function() {
+				if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+					var seconds = parseInt(JSON.parse(xmlHttp.responseText).seconds);
+					var interval;
+					parent.removeChild(e);
+					interval = setInterval(function(){
+						parent.innerHTML = "RESCUE SENT. COMING IN AWHILE... " + seconds--;
+						if(seconds < 2){ // request 2 seconds earlier, taking into account delay at hoiio
+							clearInterval(interval);
+							parent.innerHTML = "REACHED";
+						}
+					}, 1000);
+				}
+			};
+			xmlHttp.open("GET", "/api/call", true); // false for synchronous request
+			xmlHttp.send(null);
+		}
+	</script>
+	<ul class="icons">
+		<li><a href="#" onclick="sendCall(this)" class="fa-phone">Phone</a></li>
+	</ul>
+	<p> OR </p>
+	<a href="/register-phone"><button>Change Phone Number</button></a>
+</footer>
+<%- include('foot.html', {user: user}); %>
